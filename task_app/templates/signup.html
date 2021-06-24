@@ -62,6 +62,13 @@
         label {
             font-weight: bold;
         }
+
+        #footer {
+            width: 100%;
+            position: bottom;
+            bottom: 0;
+            left: 0;
+        }
     </style>
 </head>
 
@@ -88,21 +95,25 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputusername" class="form-label">Username</label>
-                        <input type="text" class="form-control" placeholder="Enter Username" id="inputusername" name="user" required>
+                        <input type="text" class="form-control" placeholder="Enter Username" id="inputusername"
+                            name="user" required>
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Enter Email Id" required>
+                        <input type="email" class="form-control" id="inputEmail4" name="email"
+                            placeholder="Enter Email Id" required>
                     </div>
 
 
                     <div class="col-md-6">
                         <label for="inputPassword4" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="Enter Password" name="pas" required>
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="Enter Password"
+                            name="pas" required>
                     </div>
                     <div class="col-md-6">
                         <label for="inputPasswordd4" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="inputPasswordd4" placeholder="Re-enter your Password" name="passcon" required>
+                        <input type="password" class="form-control" id="inputPasswordd4"
+                            placeholder="Re-enter your Password" name="passcon" required>
                     </div>
 
                     <div class="col-12">
@@ -117,29 +128,47 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputCity" class="form-label">City</label>
-                        <input type="text" class="form-control" id="inputCity" name="city" placeholder="Enter you Current City" required>
+                        <input type="text" class="form-control" id="inputCity" name="city"
+                            placeholder="Enter you Current City" required>
                     </div>
                     <div class="col-md-4">
                         <label for="inputCity" class="form-label">State</label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="Enter your State" name="state" required>
+                        <input type="text" class="form-control" id="inputCity" placeholder="Enter your State"
+                            name="state" required>
                     </div>
                     <div class="col-md-2">
                         <label for="inputZip" class="form-label">Zip</label>
                         <input type="text" class="form-control" id="inputZip" name="zip" required>
                     </div>
-                    <div class="col-12" style="text-align: center;">
-                    <button type="submit" class="btn btn-primary" style="width: 40%;">Sign up</button>
-                    </div>
+                    <button type="submit" style="width: 340px;margin-left:auto;margin-right: auto;text-align: center;"
+                        class="btn-success fs-5">SignUp</button>
                 </form>
-                    <div class="col-12" style="text-align: center;">
-                        <a href="/login"><button type="submit" class="btn btn-success" style="width: 14%;">Go To Login</button></a>
+                <section class="freelancer-available mt-2 " id="freelancer">
+                    <div class="container-lg pt-2">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 text-center">
+                                <a href="login" class="btn btn-danger m-1 mb-2"
+                                    style="width: 160px;margin-right: auto;">Go to Login</a>
+                            </div>
                         </div>
-                
+                    </div>
+                </section>
+
             </div>
         </div>
     </section>
-    <!--Login Form End-->
 
+    <!--Signup Form End-->
+    <section class="footer border-top bottom py-2" id="footer" style="background-color: rgb(41, 41, 43);">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="m-0 text-center text-white"> &copy;All rights reserved | Nemesis Consultants LLP 2021 |
+                        Designed by Tarun Tripathi</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -167,6 +196,7 @@
         password.onchange = validatePassword;
         confirm_password.onkeyup = validatePassword;
     </script>
+
 
 </body>
 
