@@ -28,6 +28,7 @@
     table {
       border-collapse: collapse;
       width: 100%;
+      table-layout: auto;
     }
 
     p,
@@ -41,6 +42,7 @@
       border: 1px solid #ddd;
       padding: .5em 5px;
       font-size: 1.2em;
+      
     }
 
     th {
@@ -119,18 +121,24 @@
       }
 
     }
+    #footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
   </style>
 </head>
 
 <body>
   <!-- As a link -->
   <!-- As a heading -->
-  <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-dark bg-dark" style="width: 100%;">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">Nemesis Consultants LLP Task</span>
       <a href="logout"><button type="button" class="btn btn-default btn-danger btn-sm">
-        <span class="glyphicon glyphicon-log-out"></span> Log out
-      </button></a>
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </button></a>
     </div>
   </nav>
   {% if detail %}
@@ -144,8 +152,8 @@
         <th scope="col" style="width: 12%;">Email</th>
         <th scope="col" style="width: 16%;">Address Line 1</th>
         <th scope="col" style="width: 12%;">Address Line 2</th>
-        <th scope="col" style="width: 11%;">City</th>
-        <th scope="col" style="width: 12%;">State</th>
+        <th scope="col" style="width: 9%;">City</th>
+        <th scope="col" style="width: 10%;">State</th>
         <th scope="col" style="width: 7%;">Zip Code</th>
         <th scope="col" style="width: 8%;">Update Details</th>
         <th scope="col" style="width: 11%;">Delete User</th>
@@ -188,7 +196,7 @@
 
                     <div class="mb-3">
                       <label for="recipient-email" class="col-form-label">Password</label>
-                      <input type="password" class="form-control" name="pas"  id="pas">
+                      <input type="password" class="form-control" name="pas" id="pas">
                     </div>
 
                     <div class="mb-3">
@@ -240,7 +248,15 @@
   {% else %}
   <h2>No Data</h2>
   {% endif %}
-
+  <section class="footer border-top bottom  py-2" id="footer" style="background-color: rgb(41, 41, 43);">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="m-0 text-center text-white"> &copy;All rights reserved | Nemesis Consultants LLP 2021 | Designed by Tarun Tripathi</p>
+            </div>
+        </div>
+    </div>
+</section>
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
