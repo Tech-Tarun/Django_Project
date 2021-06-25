@@ -12,55 +12,142 @@
 
     <title>Screen 2</title>
     <style>
-        form {
-            border: 3px solid #f1f1f1;
-            width: 60%;
+        :root {
+            --input-padding-x: 1.5rem;
+            --input-padding-y: .75rem;
         }
 
-        input[type=username] input[type=email] input[type=password] input[type=conpasswords] input[type=text] {
+        .card-signin {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .card-signin .card-title {
+            margin-bottom: 2rem;
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+
+        .card-signin .card-body {
+            padding: 2rem;
+        }
+
+        .form-signin {
             width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
         }
 
-        button {
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-
-        .imgcontainer {
-            text-align: center;
-            margin: 24px 0 12px 0;
-        }
-
-        img.avatar {
-            width: 10%;
-            border-radius: 50%;
-        }
-
-        .row {
-            text-align: left;
-            margin: 0 auto;
-        }
-
-        .row .col-md-6 {
-            display: inline-block;
-            vertical-align: middle;
-            float: none;
-        }
-
-        label {
+        .form-signin .btn {
+            font-size: 80%;
+            border-radius: 5rem;
+            letter-spacing: .1rem;
             font-weight: bold;
+            padding: 1rem;
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .form-label-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .form-label-group input {
+            height: auto;
+            border-radius: 2rem;
+        }
+
+        .form-label-group>input,
+        .form-label-group>label {
+            padding: var(--input-padding-y) var(--input-padding-x);
+        }
+
+        .form-label-group>label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            margin-bottom: 0;
+            /* Override default `<label>` margin */
+            line-height: 1.5;
+            color: #495057;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+            transition: all .1s ease-in-out;
+        }
+
+        .form-label-group input::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        .form-label-group input:-ms-input-placeholder {
+            color: transparent;
+        }
+
+        .form-label-group input::-ms-input-placeholder {
+            color: transparent;
+        }
+
+        .form-label-group input::-moz-placeholder {
+            color: transparent;
+        }
+
+        .form-label-group input::placeholder {
+            color: transparent;
+        }
+
+        .form-label-group input:not(:placeholder-shown) {
+            padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+            padding-bottom: calc(var(--input-padding-y) / 3);
+        }
+
+        .form-label-group input:not(:placeholder-shown)~label {
+            padding-top: calc(var(--input-padding-y) / 3);
+            padding-bottom: calc(var(--input-padding-y) / 3);
+            font-size: 12px;
+            color: #777;
+        }
+
+        .btn-login {
+            color: white;
+            background-color: #3b5998;
+
+            margin-bottom: 5%;
+            margin-top: 5%;
+            font-size: 80%;
+            border-radius: 5rem;
+            letter-spacing: .1rem;
+            font-weight: bold;
+            padding: 1rem;
+            transition: all 0.2s;
+        }
+
+        /* Fallback for Edge
+-------------------------------------------------- */
+
+        @supports (-ms-ime-align: auto) {
+            .form-label-group>label {
+                display: none;
+            }
+
+            .form-label-group input::-ms-input-placeholder {
+                color: #777;
+            }
+        }
+
+        /* Fallback for IE
+-------------------------------------------------- */
+
+        @media all and (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+            .form-label-group>label {
+                display: none;
+            }
+
+            .form-label-group input:-ms-input-placeholder {
+                color: #777;
+            }
         }
 
         #footer {
@@ -82,88 +169,109 @@
     </nav>
 
     <!--Login Form-->
-    <section class="signup">
-        <div class="container-lg mt-3">
-            <div style="display: block;text-align: center;">
-                <h2 style="text-align: center;">SignUp Form</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign Up</h5>
+                        <form class="form-signin" action="signup" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-label-group">
+                                        <input type="text" id="inputusername" name="user" class="form-control" required
+                                            autofocus>
+                                        <label for="inputusername">Enter Username</label>
+                                    </div>
+                                </div>
 
-                <form class="row g-3 mt-3" style="align-items: center;" method="POST">
-                    {% csrf_token %}
-                    <div class="imgcontainer">
-                        <img src="https://png.pngtree.com/png-vector/20191003/ourmid/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1786166.jpg"
-                            alt="Avatar" class="avatar">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputusername" class="form-label">Username</label>
-                        <input type="text" class="form-control" placeholder="Enter Username" id="inputusername"
-                            name="user" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" name="email"
-                            placeholder="Enter Email Id" required>
-                    </div>
-
-
-                    <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="Enter Password"
-                            name="pas" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputPasswordd4" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="inputPasswordd4"
-                            placeholder="Re-enter your Password" name="passcon" required>
-                    </div>
-
-                    <div class="col-12">
-                        <label for="inputAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" name="add"
-                            placeholder="1234 Main St Express Way.." required>
-                    </div>
-                    <div class="col-12">
-                        <label for="inputAddress2" class="form-label">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress2" name="add1"
-                            placeholder="Apartment, studio, or floor" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputCity" class="form-label">City</label>
-                        <input type="text" class="form-control" id="inputCity" name="city"
-                            placeholder="Enter you Current City" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="inputCity" class="form-label">State</label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="Enter your State"
-                            name="state" required>
-                    </div>
-                    <div class="col-md-2">
-                        <label for="inputZip" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="inputZip" name="zip" required>
-                    </div>
-                    <button type="submit" style="width: 340px;margin-left:auto;margin-right: auto;text-align: center;"
-                        class="btn-success fs-5">SignUp</button>
-                </form>
-                <section class="freelancer-available mt-2 " id="freelancer">
-                    <div class="container-lg pt-2">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8 text-center">
-                                <a href="login" class="btn btn-danger m-1 mb-2"
-                                    style="width: 160px;margin-right: auto;">Go to Login</a>
+                                <div class="col-md-6">
+                                    <div class="form-label-group">
+                                        <input type="email" id="inputEmail4" name="email" class="form-control" required>
+                                        <label for="inputEmail4">Enter Email</label>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-label-group">
+                                    <input type="text" id="inputAddress" name="add" class="form-control" required
+                                        autofocus>
+                                    <label for="inputAddress">Address Line 1</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-label-group">
+                                    <input type="text" id="inputAddress2" name="add1" class="form-control" required>
+                                    <label for="inputAddress2">Address Line 2</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-label-group">
+                                    <input type="text" id="inputState" name="state" class="form-control" required>
+                                    <label for="inputState">State</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-label-group">
+                                        <input type="text" id="inputCity" name="city" class="form-control" required
+                                            autofocus>
+                                        <label for="inputCity">City</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-label-group">
+                                        <input type="text" id="inputZip" name="zip" class="form-control" required
+                                            autofocus>
+                                        <label for="inputZip">Zip Code</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-label-group">
+                                        <input type="password" id="inputPassword4" name="pas" class="form-control"
+                                            required autofocus>
+                                        <label for="inputPassword4">Enter Password</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-label-group">
+                                        <input type="password" id="inputPasswordd4" name="passcon" class="form-control"
+                                            required>
+                                        <label for="inputPasswordd4">Confirm Password</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block mt-2 text-uppercase" type="submit">Sign
+                                in</button>
+                            <hr class="my-4">
+                        </form>
+                        <div class="text-center">
+                            <a href="login"><button class="btn btn-lg btn-login btn-block text-uppercase"
+                                    type="submit">
+                                    Go to Login</button></a>
                         </div>
                     </div>
-                </section>
-
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+
 
     <!--Signup Form End-->
     <section class="footer border-top bottom py-2" id="footer" style="background-color: rgb(41, 41, 43);">
         <div class="container-lg">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="m-0 text-center text-white"> &copy;All rights reserved | Nemesis Consultants LLP 2021 |
+                    <p class="m-0 text-center text-white"> &copy;All rights reserved | Nemesis Consultants
+                        LLP 2021 |
                         Designed by Tarun Tripathi</p>
                 </div>
             </div>
